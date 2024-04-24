@@ -1,3 +1,9 @@
+import { RecursivePartial, IResizeEvent } from '@tsparticles/react';
+
+// Define particlesConfig object with type hints using JSDoc comments
+/**
+ * @type {RecursivePartial<IOptions>}
+ */
 const particlesConfig = 
 {
   "background": {
@@ -13,7 +19,10 @@ const particlesConfig =
         "enable": true,
         "mode": "repulse"
       },
-      "resize": true
+      resize: { // Adjusted to match RecursivePartial<IResizeEvent>
+        width: true,
+        height: true,
+      },
     },
     "modes": {
       "push": {
