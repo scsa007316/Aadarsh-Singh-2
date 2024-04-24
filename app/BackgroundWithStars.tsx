@@ -14,7 +14,7 @@ const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => 
     return 'white'; // Remaining white
   };
   
-  const getShadowColor = (color) => {
+  const getShadowColor = (color: 'blue' | 'blueish' | 'red' | 'reddish' | 'default') => {
     switch (color) {
       case 'blue':
       case 'blueish':
@@ -26,6 +26,7 @@ const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => 
         return 'rgba(255, 255, 255, 0.5)'; // White shadow
     }
   };
+  
   
 
   return (
