@@ -48,7 +48,7 @@ const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => 
                 backgroundColor: color,
                 borderRadius: '50%',
                 filter: 'blur(1.5px)', // Adjust blur radius as needed
-                boxShadow: `0 0 1px 2px ${getShadowColor(color)}`, // Adjust shadow size and color dynamically
+                boxShadow: `0 0 1px 2px ${getShadowColor('blueish')}`, // Adjust shadow size and color dynamically
               }}
             />
           );
