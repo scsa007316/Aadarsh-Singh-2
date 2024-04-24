@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoComponent from '../components/VideoComponent'; // Import the VideoComponent
+import { Video } from './types'; // Adjust the path as needed
 
 interface BackgroundWithStarsProps {
   videos: Video[]; // Assuming Video[] is the type for your videos array
