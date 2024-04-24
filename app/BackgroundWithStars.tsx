@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoComponent from '/components/VideoComponent'; // Import the VideoComponent
+import VideoComponent from '../components/VideoComponent'; // Import the VideoComponent
 
 const BackgroundWithStars = ({ videos }) => {
   const generateRandomColor = () => {

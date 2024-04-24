@@ -58,7 +58,7 @@ const Page = () => {
 return (
   <>
  <Pagep1 />
- 
+
  <Lotcomp2 />
     <div>
     <BackgroundWithStars videos={videos} />

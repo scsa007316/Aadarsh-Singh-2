@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Lottie from 'lottie-react';
-import animationData from '/public/Lottie/BH.json';
+import animationData from '../public/Lottie/BH.json';
 
 
 
