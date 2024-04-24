@@ -1,7 +1,11 @@
 import React from 'react';
 import VideoComponent from '../components/VideoComponent'; // Import the VideoComponent
 
-const BackgroundWithStars = ({ videos }) => {
+interface BackgroundWithStarsProps {
+  videos: Video[]; // Assuming Video[] is the type for your videos array
+}
+
+const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => {
   const generateRandomColor = () => {
     const random = Math.random();
     if (random < 0.2) return 'blueish'; // 20% blueish
