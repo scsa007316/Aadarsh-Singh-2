@@ -1,0 +1,41 @@
+/* styles.css */
+body {
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling for the body */
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the background container behind other elements */
+  background-image: url('/Layout/back.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#particles-container {
+  position: relative;
+  height: 100vh;
+  z-index: 1;
+  overflow-y: auto; /* Enable vertical scrolling for the content */
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  z-index: 2;
+  white-space: nowrap;
+  padding: 25px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.7);
+}
