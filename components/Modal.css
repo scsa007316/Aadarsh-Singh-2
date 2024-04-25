@@ -1,0 +1,23 @@
+/* modalStyles.css */
+
+/* Modal styles */
+.custom-modal {
+  width: 60%;
+  height: 80vh;
+  margin: auto;
+  background-image: url("/Burn.jpg");
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Modal overlay styles for blur effect */
+.custom-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* Body styles when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
