@@ -7,20 +7,19 @@ import NavBar from '../components/NavBar';
 
 const DynamicParticles = dynamic(() => import('@tsparticles/react'), { ssr: false });
 
-import { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
+import { initParticlesEngine, Container } from '@tsparticles/react'; // Import Container from '@tsparticles/react'
 
 const Pagep1 = () => {
   console.log('Rendering Page component');
 
-  const particlesLoaded = async (container: HTMLElement) => {
+  const particlesLoaded = async (container?: Container) => { // Modify particlesLoaded function to accept Container or undefined
     console.log('Particles loaded:', container);
   };
 
   React.useEffect(() => {
     console.log('Effect triggered');
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      //await loadSlim(engine);
     });
   }, []);
 
@@ -68,7 +67,7 @@ const Pagep1 = () => {
         <p style={{ marginTop: '10px' }}>Various tutorials from the world wide web were referenced during the creation process.</p>
       </div>
       <div style={{ height: '1000px', width: '1000px', position: 'relative', top: '30%', left: '20%' }}>
-        <DynamicParticles id="tsparticles" particlesLoaded={particlesLoaded} options={particlesConfig} />;
+        <DynamicParticles id="tsparticles" particlesLoaded={particlesLoaded} options={particlesConfig} />
       </div>
     </div>
   );
