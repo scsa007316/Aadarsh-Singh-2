@@ -7,13 +7,13 @@ import NavBar from '../components/NavBar';
 
 const DynamicParticles = dynamic(() => import('@tsparticles/react'), { ssr: false });
 
-import { initParticlesEngine, Container } from '@tsparticles/react'; // Import Container from '@tsparticles/react'
+import { initParticlesEngine } from '@tsparticles/react'; // Import initParticlesEngine from '@tsparticles/react'
 
 const Pagep1 = () => {
   console.log('Rendering Page component');
 
-  const particlesLoaded = async (container?: Container) => { // Modify particlesLoaded function to accept Container or undefined
-    console.log('Particles loaded:', container);
+  const particlesLoaded = async () => { // Remove the parameter since Container is not used
+    console.log('Particles loaded');
   };
 
   React.useEffect(() => {
