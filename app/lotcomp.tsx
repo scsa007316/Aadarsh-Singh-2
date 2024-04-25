@@ -1,11 +1,11 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
-import Lottie, { LottieProps } from 'lottie-react';
+import Lottie from 'lottie-react';
 import animationData from '../public/Lottie/BH.json';
 
 const Lotcomp: React.FC = () => {
-  const myRef = useRef<LottieProps['lottieRef']>(null);
+  const myRef = useRef<any>(null); // Use 'any' type for myRef to avoid type errors
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,8 +20,8 @@ const Lotcomp: React.FC = () => {
         let frame = Math.floor(((scrollPosition - startScroll) / maxScroll) * maxFrame * scrollFactor);
         frame = frame > maxFrame ? maxFrame : frame;
         if (myRef.current) {
-          // @ts-ignore
-          myRef.current.goToAndStop(frame, true); // TypeScript may not recognize goToAndStop without type definition
+          // Use 'any' type for myRef.current to avoid type errors
+          (myRef.current as any).goToAndStop(frame, true);
         }
       }
     };
