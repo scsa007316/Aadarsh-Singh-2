@@ -1,6 +1,15 @@
 import React from 'react';
 import VideoComponent from '../components/VideoComponent'; // Import the VideoComponent
 
+interface Video {
+  source: string;
+  title: string;
+}
+
+interface BackgroundWithStarsProps {
+  videos: Video[];
+}
+
 const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => {
   const generateRandomColor = () => {
     const random = Math.random();
@@ -8,8 +17,8 @@ const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => 
     if (random < 0.3) return 'reddish'; // 10% reddish
     return 'white'; // Remaining white
   };
-  
-  const getShadowColor = (color) => {
+
+  const getShadowColor = (color: string) => {
     switch (color) {
       case 'blue':
       case 'blueish':
@@ -21,10 +30,8 @@ const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => 
         return 'rgba(255, 255, 255, 0.5)'; // White shadow
     }
   };
-  
 
   return (
-    
     <div style={{ position: 'relative', height: '600px', backgroundColor: 'black', padding: '100px', zIndex: 1, width: '100%' }}>
       {/* Stars */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
@@ -51,7 +58,7 @@ const BackgroundWithStars: React.FC<BackgroundWithStarsProps> = ({ videos }) => 
       {/* Render the video components */}
       <div style={{ display: 'flex', gap: '1px', position: 'relative', zIndex: 2 }}>
         {videos.map((video, index) => (
-          <VideoComponent key={index} videoSource={video.source} title={video.title} titleStyle={{ color: 'white', fontStyle: 'italic', fontWeight: 'bold' }}/>
+          <VideoComponent key={index} videoSource={video.source} title={video.title} titleStyle={{ color: 'white', fontStyle: 'italic', fontWeight: 'bold' }} />
         ))}
       </div>
     </div>
