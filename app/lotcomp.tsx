@@ -1,11 +1,12 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
-import Lottie, { AnimationItem } from 'lottie-react';
+import Lottie from 'lottie-react';
+import AnimationItem from 'lottie-react'; // Import AnimationItem from 'lottie-react'
 import animationData from '../public/Lottie/BH.json';
 
 const Lotcomp: React.FC = () => {
-  const myRef = useRef<AnimationItem>(null); // Use typeof Lottie to refer to the type
+  const myRef = useRef<AnimationItem>(null); // Use AnimationItem as the type
 
   useEffect(() => {
     const handleScroll = () => {
