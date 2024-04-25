@@ -1,98 +1,69 @@
 // page.tsx
 "use client"
 // page.tsx
-import React from 'react';
-import dynamic from 'next/dynamic';
-import BackToTopButton from '../components/ToTop';
-import Footer from '../components/Footer';
-import Pagep1 from './comp1'
-import BackgroundWithStars from './BackgroundWithStars';
-import Lotcomp2 from './lotcomp2';
+import React, { useState } from 'react';
 
+const NavBar = () => {
+  const [isProjectsExpanded, setProjectsExpanded] = useState(false);
 
-const DynamicParticles = dynamic(() => import('@tsparticles/react'), { ssr: false });
-
-import { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
-import { loadPolygonPath } from '@tsparticles/path-polygon';
-import { loadCurvesPath } from '@tsparticles/path-curves';
-
-const Page = () => {
-  console.log('Rendering Page component');
-
- 
-  const footerStyle = {
-    position: 'absolute',
-    top: '3120px',
-    width: '100%',
-    zIndex: 2,
+  const handleProjectsClick = () => {
+    setProjectsExpanded(!isProjectsExpanded);
   };
-  const videos = [
-    { source: "/Videos/Black_Hole_Decay.mp4", title: "Black Hole Hawking Evaporation" },
-    { source: "/Videos/Black_Hole.mp4", title: "Intergalactic Black Hole" },
-    { source: "/Videos/Gravitational_Waves.mp4", title: "Gravitational Waves from two Black Holes" },
-  ];
 
+  return (
+    <nav
+      style={{ backgroundColor: 'rgba(74, 112, 194, 0.75)', padding: '1rem', zIndex: 2 }}
+      className="flex justify-between items-center"
+    >
+      <a className="text-3xl font-bold text-white hover:underline" href="https://scsa007316.github.io/">
+        Aadarsh Singh
+      </a>
 
-  const videos2 = [
-    { source: "/Videos/SM.mp4", title: "Black Hole Hawking Evaporation" },
-    { source: "/Videos/Mandelbulb.mp4", title: "Intergalactic Black Hole" },
-    { source: "/Videos/Galaxy.mp4", title: "Gravitational Waves from two Black Holes" },
-  ];
-
-  const videos3 = [
-    { source: "/Videos/Black.mkv", title: "Black Hole Hawking Evaporation" },
-    { source: "/Videos/Mandelbulb.mp4", title: "Intergalactic Black Hole" },
-    { source: "/Videos/Galaxy.mp4", title: "Gravitational Waves from two Black Holes" },
-  ];
-
-  React.useEffect(() => {
-    console.log('Effect triggered');
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-      await loadPolygonPath(engine);
-      await loadCurvesPath(engine);
-    });
-  }, []);
-
-return (
-  <>
- <Pagep1 />
-
- <Lotcomp2 />
-    <div>
-    <BackgroundWithStars videos={videos} />
-    <BackgroundWithStars videos={videos2} />
-    </div>
-  
-      {/* Add the BackToTopButton component */}
-      <BackToTopButton />
-    <Footer style={footerStyle} />
-    <style>
-          {`
-            /* For WebKit (Chrome, Safari, etc.) */
-            ::-webkit-scrollbar {
-              width: 10px;
-              border-radius: 5px; /* Roundness of the scrollbar track */
-            }
-            
-            ::-webkit-scrollbar-track {
-              background: rgba(255, 255, 255, 0); /* Background color of the track */
-            }
-            
-            ::-webkit-scrollbar-thumb {
-              background: #B0C4DE; /* Color of the thumb */
-              border-radius: 5px; /* Roundness of the thumb */
-            }
-
-            /* For Firefox */
-            scrollbar-width: thin;
-            scrollbar-color: #B0C4DE rgba(255, 255, 255, 1); /* Color of the thumb and track */
-          `}
-        </style>
-  </>
-);
-
+      <div className="space-x-00 flex items-center">
+        <a className="text-white hover:underline rounded-full p-1" href="/ML/Physics">
+          Theoretical Physics
+        </a>
+        <a className="text-white hover:underline" href="/ML">
+          Coding
+        </a>
+        <button
+          className={`text-white px-4 py-2 rounded-full focus:outline-none focus:ring focus:border-blue-300 ${
+            isProjectsExpanded ? 'bg-blue-600 underline' : 'bg-blue-500 hover:bg-blue-600'
+          }`}
+          onClick={handleProjectsClick}
+        >
+          Animation
+        </button>
+        <a
+          href="https://www.linkedin.com/in/aadarsh-singh-506454260?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-2"
+        >
+          {/* LinkedIn icon */}
+          <img
+            src="/Logos/Linkedin_logo.png" // Replace with the actual path to your LinkedIn icon/image
+            alt="LinkedIn"
+            className="w-6 h-6"
+          />
+        </a>
+        
+        <a
+          href="https://github.com/scsa007316"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-2"
+        >
+          {/* GitHub icon */}
+          <img
+            src="/Logos/github-mark-white.png" // Replace with the actual path to your GitHub icon/image
+            alt="GitHub"
+            className="w-6 h-6"
+          />
+        </a>
+      </div>
+    </nav>
+  );
 };
 
-export default Page;
+export default NavBar;
