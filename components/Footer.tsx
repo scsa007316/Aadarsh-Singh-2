@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-const Footer = ({ style })  => {
+interface FooterProps {
+  style: React.CSSProperties; // Define the type as React.CSSProperties
+}
+
+
+const Footer: React.FC<FooterProps> = ({ style }) => {
   const [isProjectsExpanded, setProjectsExpanded] = useState(false);
 
   const handleProjectsClick = () => {
