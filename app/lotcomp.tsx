@@ -6,7 +6,7 @@ import AnimationItem from 'lottie-react'; // Import AnimationItem from 'lottie-r
 import animationData from '../public/Lottie/BH.json';
 
 const Lotcomp: React.FC = () => {
-  const myRef = useRef<AnimationItem>(null); // Use AnimationItem as the type
+  const myRef = useRef<typeof AnimationItem>(null); // Use typeof AnimationItem as the type
 
   useEffect(() => {
     const handleScroll = () => {
