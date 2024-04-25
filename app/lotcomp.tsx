@@ -1,24 +1,25 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
-import Lottie, { AnimationItem } from 'lottie-react';
+import Lottie from 'lottie-react'; // Import Lottie without specific members
+import { AnimationItem } from 'lottie-react/types'; // Import AnimationItem from 'lottie-react/types'
 import animationData from '../public/Lottie/BH.json';
 
 const Lotcomp: React.FC = () => {
-  const myRef = useRef<AnimationItem | null>(null); // Adjust the type of myRef to AnimationItem | null
+  const myRef = useRef<AnimationItem | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.pageYOffset;
-      const startScroll = 0; // Start of scroll range
-      const endScroll = 1800; // End of scroll range
-      const maxScroll = endScroll - startScroll; // Total scroll range
-      const maxFrame = 180; // Maximum frame value
-      const scrollFactor = 0.5; // Adjust this factor to control speed
+      const startScroll = 0;
+      const endScroll = 1800;
+      const maxScroll = endScroll - startScroll;
+      const maxFrame = 180;
+      const scrollFactor = 0.5;
 
       if (scrollPosition >= startScroll && scrollPosition <= endScroll) {
         let frame = Math.floor(((scrollPosition - startScroll) / maxScroll) * maxFrame * scrollFactor);
-        frame = frame > maxFrame ? maxFrame : frame; // Limit frame value
+        frame = frame > maxFrame ? maxFrame : frame;
         if (myRef.current) {
           myRef.current.goToAndStop(frame, true);
         }
@@ -38,9 +39,9 @@ const Lotcomp: React.FC = () => {
         style={{
           position: 'relative',
           overflow: 'hidden',
-          display: 'flex', // Add this
-          justifyContent: 'center', // Add this
-          alignItems: 'center', // Add this
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Lottie
