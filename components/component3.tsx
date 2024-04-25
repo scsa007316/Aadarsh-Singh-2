@@ -1,3 +1,9 @@
+import React, { FC } from 'react';
+
+interface InboxIconProps {
+  // Define the props expected by the InboxIcon component
+}
+
 export function Component3() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-black" style={{ zIndex: 9999 }}>
@@ -79,7 +85,7 @@ export function Component3() {
     </section>
   )
 }
-function InboxIcon(props) {
+function InboxIcon: FC<InboxIconProps> = (props) => {
   return (
     <svg
       {...props}
