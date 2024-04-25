@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+.rounded-box {
+  border-radius: 8px; /* Adjust the radius as needed */
+  padding: 1rem;
+  background-color: #2a2a72;
+  color: #ffffff;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(-50%, -50%) rotate(3deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-3deg);
+  }
+}
+
+@keyframes translateX {
+  to {
+    transform: translateX(10px); /* Adjust the value based on how much you want it to move */
+  }
+}
+/* Existing styles */
