@@ -10,7 +10,7 @@ const BackToTopButton = () => {
     setIsVisible(scrollY > scrollThreshold);
   };
 
-  const scrollToTop = (event) => {
+  const scrollToTop = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     window.scrollTo({
       top: 0,
