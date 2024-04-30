@@ -31,7 +31,7 @@ const Page2 = () => {
    
   const footerStyle: CSSProperties = {
     position: 'absolute',
-    top: '3120px',
+    top: '500px',
     width: '100%',
     zIndex: 2,
   };
