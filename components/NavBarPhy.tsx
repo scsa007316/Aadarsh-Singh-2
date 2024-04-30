@@ -13,7 +13,7 @@ const NavBar = () => {
       style={{ backgroundColor: 'rgba(150, 80, 20, 0.75)', padding: '1rem', zIndex: 2 }}
       className="flex justify-between items-center"
     >
-      <a className="text-3xl font-bold text-white hover:underline" href="https://scsa007316.github.io/">
+      <a className="text-3xl font-bold text-white hover:underline" href="https://aadarshsingh0.github.io/">
         Aadarsh Singh
       </a>
 
