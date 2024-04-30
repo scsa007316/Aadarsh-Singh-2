@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link'; 
 import BackToTopButton from '/components/ToTop';
 import Footer from '/components/Footer';
+import { CSSProperties } from 'react';
 
 import { tsParticles } from '@tsparticles/engine';
 import { loadCurvesPath } from '@tsparticles/path-curves';
@@ -24,11 +25,16 @@ import { loadSlim } from '@tsparticles/slim';
 const Page2 = () => {
   console.log('Rendering Page component');
 
-  const particlesLoaded = (container) => {
-    console.log('Particles loaded:', container);
+  const particlesLoaded = async () => { // Remove the parameter since Container is not used
+    console.log('Particles loaded');
   };
    
-
+  const footerStyle: CSSProperties = {
+    position: 'absolute',
+    top: '3120px',
+    width: '100%',
+    zIndex: 2,
+  };
   
 
   React.useEffect(() => {
@@ -49,7 +55,7 @@ return (
 
    <BackToTopButton />
    <div style={{ position: 'absolute', width: '100%', zIndex: 2 }}>
-   <Footer />
+   <Footer style={footerStyle} />
     </div>
 
      <div

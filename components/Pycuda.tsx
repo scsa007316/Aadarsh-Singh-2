@@ -47,14 +47,17 @@ const YourComponent4: React.FC = () => {
                 transition: "transform 0.3s ease-in-out, background-color 0.3s ease-in-out", // Combined transitions for smoother interaction
               }}
               onMouseEnter={(e) => {
-                e.target.style.transform = "scale(1.1)"; // Scaling effect on hover
-                e.target.style.background = "linear-gradient(to right, black, #ffd699, black)"; // Gradient background on hover
-                e.target.style.color = "#ff9900"; // Change text color to yellow on hover
+                const target = e.target as HTMLElement; // Type assertion
+                target.style.transform = "scale(1.1)";
+                target.style.background = "linear-gradient(to right, black, #ffd699, black)";
+                target.style.color = "#ff9900";
               }}
+              
               onMouseLeave={(e) => {
-                e.target.style.transform = "scale(1)";
-                e.target.style.background = "transparent"; // Make background transparent on leave
-                e.target.style.color = "white"; // Restore text color to white when not hovered
+                const target = e.target as HTMLElement;
+                target.style.transform = "scale(1)";
+                target.style.background = "transparent"; // Make background transparent on leave
+                target.style.color = "white"; // Restore text color to white when not hovered
               }}
             >
               {project.name}

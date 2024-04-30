@@ -18,8 +18,8 @@ const Pagep1 = () => {
   
 
   console.log('Rendering Page component');
-  const particlesLoaded = (container) => {
-    console.log('Particles loaded:', container);
+  const particlesLoaded = async () => { // Remove the parameter since Container is not used
+    console.log('Particles loaded');
   };
    
   React.useEffect(() => {

@@ -7,7 +7,7 @@ import animationData from '/public/Lottie/Laptop.json';
 
 
 const Lotcomp: React.FC = () => {
-  const myRef = useRef(null);
+  const myRef = useRef<any>(null); // Use 'any' type for myRef to avoid type errors
 
   useEffect(() => {
     const handleScroll = () => {

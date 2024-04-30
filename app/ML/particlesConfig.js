@@ -1,5 +1,12 @@
+import { RecursivePartial, IResizeEvent } from '@tsparticles/react';
+
+// Define particlesConfig object with type hints using JSDoc comments
+/**
+ * @type {RecursivePartial<IOptions>}
+ */
 const particlesConfig = 
 {
+
     "autoPlay": true,
     "background": {
       "color": {

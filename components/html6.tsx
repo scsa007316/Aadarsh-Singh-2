@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import animationData from '/public/Lottie/Monkey_lottie.json';
 
 const MyHtmlComponentLottie2: React.FC = () => {
-  const myRef = useRef(null);
+  const myRef = useRef<any>(null); // Use AnimationItem as the type
 
   useEffect(() => {
     if (myRef.current) {
@@ -14,7 +14,7 @@ const MyHtmlComponentLottie2: React.FC = () => {
 
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center', height: '10vh' }}>
-      <div >
+      <div>
         <Lottie
           lottieRef={myRef}
           animationData={animationData}
@@ -28,6 +28,4 @@ const MyHtmlComponentLottie2: React.FC = () => {
 };
 
 export default MyHtmlComponentLottie2;
-
-
 
