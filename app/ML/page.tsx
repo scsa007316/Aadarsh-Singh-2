@@ -1,19 +1,21 @@
 // page.tsx
 "use client"
 // page.tsx
-import React from 'react';
+import React, { CSSProperties , useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link'; 
 import BackToTopButton from '/components/ToTop';
 import Footer from '/components/Footer';
-import { CSSProperties } from 'react';
-
+import MobileNavBar from '/components/NavBarML-mobile';
+import MLcomp from '/components/textml'
 import { tsParticles } from '@tsparticles/engine';
 import { loadCurvesPath } from '@tsparticles/path-curves';
 import { loadPolygonPath } from "@tsparticles/path-polygon";
 import Pagep1 from './comp1'
 import Pagep2 from '/app/ML/project';
+import Pagep2mob from '/app/ML/project-mobile';
 import Lotcomp2 from './lotcomp2';
+import Footermob from '/components/Footer-mob';
 
 
 const DynamicParticles = dynamic(() => import('@tsparticles/react'), { ssr: false });
@@ -23,6 +25,23 @@ import { loadSlim } from '@tsparticles/slim';
 // particlesConfig.js
 
 const Page2 = () => {
+  const [width, setWidth] = useState<number>(0);
+  const [height, setHeight] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    };
+
+    handleResize(); // Set initial width and height
+    window.addEventListener('resize', handleResize); // Add event listener for window resize
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Clean up event listener
+    };
+  }, []);
+  
   console.log('Rendering Page component');
 
   const particlesLoaded = async () => { // Remove the parameter since Container is not used
@@ -36,7 +55,13 @@ const Page2 = () => {
     zIndex: 2,
   };
   
-
+  const footerStylemob: CSSProperties = {
+    position: 'absolute',
+    top: '200px',
+    width: '100%',
+    zIndex: 2,
+  };
+  
   React.useEffect(() => {
     console.log('Effect triggered');
     initParticlesEngine(async (engine) => {
@@ -48,31 +73,67 @@ const Page2 = () => {
 
 return (
   <>
-   <Pagep1 />
+   {width > height ? (
+        <Pagep1 />
+      ) : (
+        <MobileNavBar someProp="Hello, prop value!" />
+      )}
 
-   <Lotcomp2 />
-   <Pagep2 />
+{width > height ? (
+  
+  <Lotcomp2 />
+) : null}
+
+{width < height ? (
+  
+<MLcomp />
+
+
+) : null}
+
+{width > height ? (
+        <Pagep2 />
+      ) : (
+        <div style={{ marginTop: '400px' }}> {/* Adjust the marginTop value */}
+        <Pagep2mob />
+      </div>
+      )}
 
    <BackToTopButton />
+ 
+ 
    <div style={{ position: 'absolute', width: '100%', zIndex: 2 }}>
-   <Footer style={footerStyle} />
+   {width > height ? (
+        
+        <Footer style={footerStyle} />
+        ) : (
+          
+        <Footermob style={footerStylemob} />
+        )}
     </div>
 
-     <div
-      style={{
-        position: 'fixed',
-        bottom: '20px',
-        left: '20px',
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        color: 'white',
-        padding: '10px',
-        borderRadius: '5px',
-        zIndex: '999',
-        animation: 'moveText 5s linear infinite',
-      }}
-    >
-      Click for particle emission
-    </div>
+    {width > height ? (
+  
+  <div
+  style={{
+    position: 'fixed',
+    bottom: '20px',
+    left: '20px',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    color: 'white',
+    padding: '10px',
+    borderRadius: '5px',
+    zIndex: '999',
+    animation: 'moveText 5s linear infinite',
+  }}
+>
+  Click for particle emission
+</div>
+  
+  
+  ) : null}
+
+    
 
 
 

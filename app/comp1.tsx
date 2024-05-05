@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import particlesConfig from './particlesConfig';
 //import 'katex/dist/katex.min.css';
 import NavBar from '../components/NavBar';
-
+import VibratingComponent from './Text';
 const DynamicParticles = dynamic(() => import('@tsparticles/react'), { ssr: false });
 
 import { initParticlesEngine } from '@tsparticles/react'; // Import initParticlesEngine from '@tsparticles/react'
@@ -34,39 +34,8 @@ const Pagep1 = () => {
           <span className="ml-4">PROJECTS</span>
         </h1>
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          textAlign: 'center',
-          color: 'white',
-          fontSize: '2rem',
-          zIndex: 1,
-          whiteSpace: 'nowrap', // Prevents line breaks
-          padding: '25px', // Adding padding for better visual appeal
-          borderRadius: '10px', // Adjust the value to control the roundness
-          border: '2px solid white', // Adding a white border
-          background: 'rgba(0, 0, 0, 0.7)', // Semi-transparent black background
-        }}
-      >
-        <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          Animations created with open-source modeling software -{' '}
-          <strong>
-            <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">
-              <em style={{ color: '#FF8C00' }}>Blender</em>
-            </a>
-          </strong>
-          <img
-            src="/Logos/Blender_logo.png"  // Replace with the actual path to your Blender logo image
-            alt="Blender Logo"
-            style={{ width: '40px', marginLeft: '8px' }}  // Adjust the width and margin as needed
-          />
-        </h1>
-        <p style={{ marginTop: '10px' }}>Various tutorials from the world wide web were referenced during the creation process.</p>
-      </div>
-      <div style={{ height: '1000px', width: '1000px', position: 'relative', top: '30%', left: '20%' }}>
+      <VibratingComponent />
+      <div style={{ height: '1000px',  position: 'relative', top: '30%', left: '20%' }}>
         <DynamicParticles id="tsparticles" particlesLoaded={particlesLoaded} options={particlesConfig} />
       </div>
     </div>

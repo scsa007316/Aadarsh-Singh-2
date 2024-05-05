@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import particlesConfig from './particlesConfig';
 //import 'katex/dist/katex.min.css';
 import NavBar from '/components/NavBarML';
+import VibratingComponent from './Text';
 
 
 const DynamicParticles = dynamic(() => import('@tsparticles/react'), { ssr: false });
@@ -42,28 +43,9 @@ const Pagep1 = () => {
     </h1>
 
     </div>
-    <div
-    style={{
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    textAlign: 'center',
-    color: 'white',
-    fontSize: '2rem',
-    zIndex: 1,
-    whiteSpace: 'nowrap', // Prevents line breaks
-    padding: '25px', // Adding padding for better visual appeal
-    borderRadius: '10px', // Adjust the value to control the roundness
-    border: '2px solid white', // Adding a white border
-    background: 'rgba(0, 0, 0, 0.7)', // Semi-transparent black background
-  }}
->
-    <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    Following is the list of various coding projects done in several languages <br></br> such as python, Mathematica, C++ etc. {' '}
     
-  </h1>
- </div>
+    <VibratingComponent />
+
   <div style={{height: '600px',width:'100%',
     position: 'relative',
     top: '30%',
